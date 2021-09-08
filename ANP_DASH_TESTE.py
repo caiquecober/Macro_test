@@ -121,7 +121,7 @@ fig5 = line_plotly('BLS/jt/JTS000000000000000UOR')
 
 ### Block 1#########################################################################################
 with st.beta_container():
-    col1, col2, col3, col4, col5 = st.beta_columns([1,20,1,20,1])
+    col1, col2, col3, col4, col5 = st.beta_columns([1,20,3,20,1])
     with col1:
         st.write("")
     with col2:
@@ -141,7 +141,7 @@ st.markdown(html_br, unsafe_allow_html=True)
 
 ### Block 2#########################################################################################
 with st.beta_container():
-    col1, col2, col3, col4, col5 = st.beta_columns([1,20,1,20,1])
+    col1, col2, col3, col4, col5 = st.beta_columns([1,20,3,20,1])
     with col1:
         st.write("")
     with col2:
@@ -161,7 +161,7 @@ st.markdown(html_br, unsafe_allow_html=True)
 
 ### Block 2#########################################################################################
 with st.beta_container():
-    col1, col2, col3, col4, col5 = st.beta_columns([1,20,1,20,1])
+    col1, col2, col3, col4, col5 = st.beta_columns([1,20,3,20,1])
     with col1:
         st.write("")
     with col2:
