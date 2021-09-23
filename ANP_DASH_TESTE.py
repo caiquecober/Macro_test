@@ -16,7 +16,7 @@ import pandas as pd
 import streamlit as st
 from dbnomics import fetch_series, fetch_series_by_api_link
 
-################################ main functions for aplication ############################################################################3
+################################ main functions for aplication ############################################################################
 def df_enxuto(df):
     nome = df.series_name.values[1]
     df = df.query("value != 'NaN'")[['period','value']]
@@ -71,7 +71,7 @@ def line_plotly(series):
                                  xanchor="center",
                                  x=0.5,
                                  font_family='Verdana'),
-                                 autosize=False, height= 550, width=750
+                                 autosize=True                                
                                  )
                              
     p1_fig.update_xaxes(rangeslider_visible=True)
@@ -81,8 +81,6 @@ def line_plotly(series):
     return p1_fig
 
 ######################### Streamlit APP
-
-
 html_header="""<head>
 <title>StoneX - Energy </title>
 <meta charset="utf-8">
@@ -119,19 +117,16 @@ fig4 = line_plotly('BLS/jt/JTS000000000000000HIR')
 fig5 = line_plotly('BLS/jt/JTS000000000000000UOR')
 
 
-### Block 1#########################################################################################
-with st.beta_container():
-    col1, col2, col3, col4, col5 = st.beta_columns([1,20,3,20,1])
-    with col1:
-        st.write("")
-    with col2:
-        st.plotly_chart(fig)
-    with col3:
-        st.write("")
-    with col4:
-        st.plotly_chart(fig1)
-    with col5:
-         st.write("")
+### Block 1############################################################################################
+# Space out the maps so the first one is 2x the size of the other three
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.plotly_chart(fig, use_container_width=True)
+with col2:
+    st.plotly_chart(fig1, use_container_width=True)
+with col3:
+    st.plotly_chart(fig3, use_container_width=True)
 
 
 html_br="""
@@ -140,38 +135,27 @@ html_br="""
 st.markdown(html_br, unsafe_allow_html=True)
 
 ### Block 2#########################################################################################
-with st.beta_container():
-    col1, col2, col3, col4, col5 = st.beta_columns([1,20,3,20,1])
-    with col1:
-        st.write("")
-    with col2:
-        st.plotly_chart(fig2)
-    with col3:
-        st.write("")
-    with col4:
-        st.plotly_chart(fig3)
-    with col5:
-         st.write("")
+col1,col2 = st.columns(2)
+
+with col1:
+    st.plotly_chart(fig2, use_container_width=True)
+with col2:
+    st.plotly_chart(fig3, use_container_width=True)
 
 
-html_br="""
+html_br="""""
 <br>
 """
 st.markdown(html_br, unsafe_allow_html=True)
 
 ### Block 2#########################################################################################
-with st.beta_container():
-    col1, col2, col3, col4, col5 = st.beta_columns([1,20,3,20,1])
-    with col1:
-        st.write("")
-    with col2:
-        st.plotly_chart(fig4)
-    with col3:
-        st.write("")
-    with col4:
-        st.plotly_chart(fig5)
-    with col5:
-         st.write("")
+col1,col2= st.columns(2)
+
+with col1:
+    st.plotly_chart(fig4, use_container_width=True)
+with col2:    
+    st.plotly_chart(fig5, use_container_width=True)
+
 
 
 html_br="""
