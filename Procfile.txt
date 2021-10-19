@@ -1,1 +1,0 @@
-web: sh setup.sh && streamlit run ANP_DASH_TESTE.py
